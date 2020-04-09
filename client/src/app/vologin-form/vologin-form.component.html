@@ -1,0 +1,25 @@
+<div class = "row" style="padding-top: 10px;">
+  <div class = "col-md-6 mx-auto">
+      <div class = "card rounded-0">
+              <div class="card-header" style="background-color: lawngreen;">
+                  Volunteer Login
+              </div>
+              <div class="card-body">
+                  <form class = "form">
+                      <div class = "form-group">
+                          <label for="">Email</label>
+                          <input [(ngModel)]="loginUserData.email" name="email" type="text" class="form-control rounded-0" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="">Password</label>
+                          <input [(ngModel)]="loginUserData.password" name="password" type = "password" class="form-control rounded-0" required>
+                      </div>
+                      <button (click)="login()" type = "button" class = "btn btn-primary">Login</button>
+                      <br>
+                      <u><a (click)="onSignUpClick()">New user? Signup</a></u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      <u><a (click)="onfgPsswd()">Forgot password</a></u>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>

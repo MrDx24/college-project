@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
-exports.user_signup = async(req, res, next) => {
-  const alreadyUser = await User.findOne({ email: req.body.emailReg });
+exports.user_signup = async(req,res,next) => {
+  const alreadyUser = await User.findOne({ email: req.body.email });
   if (alreadyUser)
     return res.status(400).json({
       message: "Email already exists."
@@ -15,10 +15,13 @@ exports.user_signup = async(req, res, next) => {
   
     const user = new User({
       _id: new mongoose.Types.ObjectId(),
-      userName: req.body.userNameReg,
-      passWord: req.body.passWordReg,
-      email: req.body.emailReg,
-      mobile: req.body.mobileReg
+      userName: req.body.userName,
+      passWord: req.body.password,
+      email: req.body.email,
+      mobile: req.body.mobile,
+      bloodGroup: req.body.bloodGroup,
+      area: req.body.area,
+      gender: req.body.gender
     });
     const savingUser = await user.save();
     if (savingUser)
@@ -30,9 +33,8 @@ exports.user_signup = async(req, res, next) => {
       return res.status(500).json({
         error: savingUser
       });
+  };
   
-};
-
 exports.user_login = async(req, res, next) => {
   const alreadyUser = await User.findOne({ email: req.body.email });
   if (!alreadyUser)
@@ -40,9 +42,26 @@ exports.user_login = async(req, res, next) => {
       message: "Please register first!"
     });
   
-    const loginUser = await User.findOne({ email: req.body.email,passWord:req.body.passWord });
+    const loginUser = await User.findOne({ email: req.body.email,passWord:req.body.password });
     if(loginUser) return res.status(200).json({
       message:'Login Successfull'
+    })
+    else return res.status(200).json({
+      message:'Please enter valid email or password'
+    })    
+  
+};
+
+exports.user_vologin = async(req, res, next) => {
+  const alreadyUser = await User.findOne({ email: req.body.email });
+  if (!alreadyUser)
+    return res.status(400).json({
+      message: "Please register first!"
+    });
+  
+    const loginUser = await User.findOne({ email: req.body.email,passWord:req.body.password });
+    if(loginUser) return res.status(200).json({
+      message:'Login Successful'
     })
     else return res.status(200).json({
       message:'Please enter valid email or password'

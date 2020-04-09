@@ -3,9 +3,9 @@ const router = express.Router();
 
 const UserController = require('../controllers/user');
 
-router.post("/register", UserController.user_signup);
+router.post("/volregister", UserController.user_signup);
 
-router.post("/login", UserController.user_login);
+router.post("/vologin", UserController.user_vologin);
 
 router.post("/fgpsswd", UserController.user_fgpsswd);
 

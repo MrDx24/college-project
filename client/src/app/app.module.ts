@@ -9,7 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterationFormComponent } from './registeration-form/registeration-form.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { VologinFormComponent } from './vologin-form/vologin-form.component';
+import { VolregisterFormComponent } from './volregister-form/volregister-form.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginFormComponent,
     RegisterationFormComponent,
     ForgotPasswordComponent,
+    VologinFormComponent,
+    VolregisterFormComponent,
 
   ],
   imports: [
@@ -26,7 +30,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

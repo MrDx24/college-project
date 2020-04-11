@@ -32,7 +32,8 @@
                         </div>
                         <div class="form-group">
                             <label for="">Gender</label>
-                            <input [(ngModel)]="registerUserData.gender" name="gender" type = "text" class="form-control rounded-0" required>
+                            <input [(ngModel)]="registerUserData.gender" name="gender" type = "radio" value = "Male">Male
+                            <input [(ngModel)]="registerUserData.gender" name="gender" type = "radio" value = "Female">Female
                         </div>
                         <button (click)="registerUser()" type = "button" class = "btn btn-primary">Register</button>
                     </form>

@@ -1,0 +1,17 @@
+<!-- <p>homepage works!</p> -->
+
+<div class="row" style="border: 1px solid black;" >
+    <div class="col-lg-12" style="border: 1px solid black;">
+        <h2 style="margin-left: 40px;">Events</h2>
+    </div>
+
+    <div class="shadow" *ngFor="let u of users" style="border-radius: 5px; width: 200px; height: 200px; padding: 20px; border: 1px solid black; margin: 20px 20px 20px 50px;">
+        <p><b>Event Name : </b>{{u.name}}</p>
+        <p><b>Location : </b>{{u.location}}</p>
+        <p><b>Type : </b>{{u.type}}</p>
+        <p><b>Date : </b>{{u.date}}</p>
+        <p><b>Time : </b>{{u.time}}</p>
+    </div>
+    
+    
+</div>

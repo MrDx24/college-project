@@ -5,6 +5,7 @@ import { RegisterationFormComponent } from './registeration-form/registeration-f
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VologinFormComponent } from './vologin-form/vologin-form.component';
 import { VolregisterFormComponent } from './volregister-form/volregister-form.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'fgpsswd', component: ForgotPasswordComponent},
   { path: 'vologin', component: VologinFormComponent},
   { path: 'volregister', component: VolregisterFormComponent},
- 
+  { path: 'homepage', component: HomepageComponent},
+
 ];
 
 @NgModule({

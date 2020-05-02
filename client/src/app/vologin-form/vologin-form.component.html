@@ -1,25 +1,69 @@
-<div class = "row" style="padding-top: 10px;">
-  <div class = "col-md-6 mx-auto">
-      <div class = "card rounded-0">
-              <div class="card-header" style="background-color: lawngreen;">
-                  Volunteer Login
-              </div>
-              <div class="card-body">
-                  <form class = "form">
-                      <div class = "form-group">
-                          <label for="">Email</label>
-                          <input [(ngModel)]="loginUserData.email" name="email" type="text" class="form-control rounded-0" required>
-                      </div>
-                      <div class="form-group">
-                          <label for="">Password</label>
-                          <input [(ngModel)]="loginUserData.password" name="password" type = "password" class="form-control rounded-0" required>
-                      </div>
-                      <button (click)="login()" type = "button" class = "btn btn-primary">Login</button>
-                      <br>
-                      <u><a (click)="onSignUpClick()">New user? Signup</a></u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      <u><a (click)="onfgPsswd()">Forgot password</a></u>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class = "row" style="padding-top: 10px; margin-top: 20px; ">
+    <div class = "col-lg-4 col-md-6 col-sm-8 col-xs-8 " style="margin: auto;">
+        <!-- <div class = "card shadow" style="border-radius: 5px;">     
+        </div>
+         style="background-color: rgba(14, 109, 218, 0.699);" 
+        <div class="panel-heading" style="padding: 20px; background-color: lawngreen; ">
+              </div> -->
+     
+            <div class="panel-body shadow" style="border-radius: 10px 10px 10px 10px;">
+                <form class="form" [formGroup]="loginForm">
+                  <h2 >
+                    Volunteer
+                    <b><span style=" float: right; font-size: 15px; margin-top: 18px;">
+                        <a href="#" style="color: #33ccff; margin-right: 20px; text-decoration: none;">Login</a>
+                        <a (click)="onSignUpClick()" style="color: darkgrey; text-decoration: none;">Sign Up</a>
+                    </span></b>
+                </h2>
+                  
+                  
+                    <div class="form-group">
+                        <label >Email</label>
+                        <input class="form-control" formControlName="email" type="email" placeholder="Please enter email here" autocomplete="off" required>
+                        <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched ) ">
+                            Please enter valid email
+                            <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                        </div>
+                        <div class="text-success" *ngIf="email.valid">
+                            <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-top: 5px;">
+                        <label >Password</label>
+                        <input class="form-control"  formControlName="password" type = "password" placeholder="Please enter password here" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" required>
+                        
+                        <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched ) ">
+                            Please enter valid password. 
+                            <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i><br>
+                            Password must contain at least one letter, at least one number, and be longer than six charaters.
+                            
+                        </div>
+                        <div class="text-success" *ngIf="password.valid">
+                            <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                        </div>
+                    </div>
+
+                    <a (click)="onfgPsswd()" style="float: right; color: rgb(122, 122, 122); margin-bottom: 30px;">Forgot password?</a>
+                    <button [disabled]="loginForm.invalid" (click)="login()" type = "button" class = "height: 30px; btn btn-block " style="color: white; background: linear-gradient(to bottom left, #33ccff 0%, #0099cc 100%);">LOGIN</button>
+                   
+                    <br>
+                    
+                    <a (click)="onSignUpClick()" style="text-decoration: none;">New user? Signup</a>
+                    
+                </form>
+            </div> 
+      
+    </div>
+
+    <!-- <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+        
+            <img class="shadow" src="../../assets/images/login1.png" alt="" style="width: 479px; height: 395;border-radius: 0px 10px 10px 0px;">
+        
+                 
+
+
+
+           
+    </div> -->
+</div>

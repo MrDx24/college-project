@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vologin-form',
@@ -9,21 +10,27 @@ import { AuthService } from '../auth.service';
 })
 export class VologinFormComponent implements OnInit {
 
+  loginForm: FormGroup;
   loginUserData = {};
   constructor(
+    private fb: FormBuilder,
     private router: Router,
-    private _auth: AuthService
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$')]]
+    });
   }
 
 login() {
 
-  this._auth.loginUser(this.loginUserData).subscribe(
+  this.auth.loginUser(this.loginUserData).subscribe(
     res => console.log(res),
     err => console.log(err)
-  )
+  );
 }
 
 onSignUpClick() {
@@ -36,6 +43,14 @@ onfgPsswd() {
 
 onCreateUpdate() {
   this.router.navigate(['/createUpdate']);
+}
+
+get email() {
+  return this.loginForm.get('email');
+}
+
+get password() {
+  return this.loginForm.get('password');
 }
 
 }

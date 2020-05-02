@@ -1,0 +1,66 @@
+.panel-body{
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, .1);
+    width: 100%;
+    padding: 20px;
+    
+    /* border-radius: 5px; */
+    
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+.panel-body h2{
+    margin: 0 0 40px;
+    padding: 0;
+    
+    /* color: rgb(52, 160, 223); */
+    color: #33ccff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.panel-body input{
+    padding: 0px 0px;
+    /* padding-bottom: -10px; */
+    border: none;
+    /* margin-bottom: 30px; */
+    /* border-bottom: 2px solid black; */
+}
+.form-group {
+    margin-bottom: 30px;
+}
+
+.panel-body input{
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    /* border: 1px solid black; */
+    border-bottom: 2px solid #999;
+    /* margin-bottom: 20px; */
+ } 
+
+ .panel-body form div label {
+     color: darkgrey; 
+     font-weight: bold;
+ }
+
+ .panel-body form input:focus ~ label::after,
+ .panel-body form input:valid ~ label {
+    color: rgb(1, 123, 223);
+ }
+
+ .panel-body form input:focus {
+    border-bottom: 2px solid rgb(1, 123, 223);
+ }
+
+ .panel-body form input:valid {
+    /* color: rgb(1, 136, 1); */
+    border-bottom: 2px solid rgb(1, 136, 1);
+ }
+
+ 
+

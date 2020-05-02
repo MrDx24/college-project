@@ -13,6 +13,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VologinFormComponent } from './vologin-form/vologin-form.component';
 import { VolregisterFormComponent } from './volregister-form/volregister-form.component';
 import { AuthService } from './auth.service';
+import { HeaderComponent } from './header/header.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { AuthService } from './auth.service';
     ForgotPasswordComponent,
     VologinFormComponent,
     VolregisterFormComponent,
+    HeaderComponent,
+    HomepageComponent,
 
   ],
   imports: [

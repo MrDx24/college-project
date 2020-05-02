@@ -1,4 +1,4 @@
-<div class = "row" style="padding-top: 10px;">
+<!-- <div class = "row" style="padding-top: 10px;">
     <div class = "col-md-6 mx-auto">
         <div class = "card rounded-0">
                 <div class="card-header" style="background-color: lawngreen;">
@@ -6,38 +6,172 @@
                 </div>
                 <div class="card-body">
                     <form class = "form">
+                        <h2>
+                            Volunteer Register
+                        </h2>
                         <div class = "form-group">
+                            
+                            <input  name="email" type="text" class="form-control rounded-0" required>
                             <label for="">Email</label>
-                            <input [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
+                            
+                            <input  name="password" type = "password" class="form-control rounded-0" required>
                             <label for="">Password</label>
-                            <input [(ngModel)]="registerUserData.password" name="password" type = "password" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
+                            
+                            <input  name="userName" type = "text" class="form-control rounded-0" required>
                             <label for="">UserName</label>
-                            <input [(ngModel)]="registerUserData.userName" name="userName" type = "text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
+                            
+                            <input  name="bloodGroup" type = "text" class="form-control rounded-0" required>
                             <label for="">BloodGroup</label>
-                            <input [(ngModel)]="registerUserData.bloodGroup" name="bloodGroup" type = "text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
+                            
+                            <input  name="mobile" type = "text" class="form-control rounded-0" required>
                             <label for="">Mobile</label>
-                            <input [(ngModel)]="registerUserData.mobile" name="mobile" type = "text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
+                            
+                            <input  name="area" type = "text" class="form-control rounded-0" required>
                             <label for="">Area</label>
-                            <input [(ngModel)]="registerUserData.area" name="area" type = "text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="">Gender</label>
-                            <input [(ngModel)]="registerUserData.gender" name="gender" type = "radio" value = "Male">Male
-                            <input [(ngModel)]="registerUserData.gender" name="gender" type = "radio" value = "Female">Female
+                            <input  name="gender" type = "radio" value = "Male">Male
+                            <input  name="gender" type = "radio" value = "Female">Female
                         </div>
                         <button (click)="registerUser()" type = "button" class = "btn btn-primary">Register</button>
                     </form>
                 </div>
             </div>
         </div>
+    </div> -->
+    
+    <div class = "row" style="padding-top: 10px; margin-top: 20px; margin-bottom: 40px;">
+        <div class = "col-lg-5 col-md-4 col-sm-4 col-xs-4 center" style="margin: auto;">
+            <!-- <div class = "card shadow" style="border-radius: 5px;">     
+            </div>
+             style="background-color: rgba(14, 109, 218, 0.699);" 
+            <div class="panel-heading" style="padding: 20px; background-color: lawngreen; ">
+                  </div> -->
+         
+                <div class="panel-body shadow" style="border-radius: 10px 10px 10px 10px;">
+                    <form class="form formGroup" [formGroup]="registerForm">
+                      <h2 >
+                        Volunteer
+                        <b><span style=" float: right; font-size: 15px; margin-top: 18px;">
+                            <a [routerLink]="['/vologin']" routerLinkActive="router-link-active"  style="color:  darkgrey; margin-right: 20px; text-decoration: none;">Login</a>
+                            <a href="#" style="color: #33ccff; text-decoration: none;">Sign Up</a>
+                        </span></b>
+                    </h2>
+                      
+                    <div class="row" style=" margin-bottom: 20px; height: 60px;" >
+                        <div class="form-group col-lg-6">
+                            <label >Username</label>
+                            <input class="form-control" formControlName="username" placeholder="Enter username" type = "text" style="width: 100%; " required>
+                            <div class="text-danger" *ngIf="username.invalid && (username.dirty || username.touched ) ">
+                                Please enter valid username
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                            <div class="text-success" *ngIf="username.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label >Blood Group</label>
+                            <input class="form-control " formControlName="bgroup" placeholder="Enter Blood Group" type = "text" style="width: 100%; " required>
+                            <div class="text-danger" *ngIf="bgroup.invalid && (bgroup.dirty || bgroup.touched ) ">
+                                Please enter valid bgroup
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                            <div class="text-success" *ngIf="bgroup.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+                         
+                    </div>
+
+                        <div class="form-group">
+                            <label style="margin-top: 20px;">Gender</label>
+                            <div class=" row" style="margin-bottom: 23px;">
+                                
+                                <span style="margin-left: 20px;">Male</span><input name="gender" type = "radio" value = "Male" style="margin-bottom: 0px; margin-top: 8px; width: 10%;" >
+                                <span>Female</span><input formControlName="gender" type = "radio" value = "Female" style="margin-bottom: 0px; margin-top: 8px; width: 10%;">
+                            </div>
+                        </div>
+                        
+                      
+                        <div class="form-group">
+                            <label >Email</label>
+                            <input class="form-control" formControlName="email" placeholder="Enter email" type="email" autocomplete="off" required>
+                            <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched ) ">
+                                Please enter valid email
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                            <div class="text-success" *ngIf="email.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+                        <div class="form-group" style="padding-top: 5px;">
+                            <label >Password</label>
+                            <input class="form-control" formControlName="password" placeholder="Enter password" type = "password" required>
+                            <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched ) ">
+                                Please enter valid password. 
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i><br>
+                                Password must contain at least one letter, at least one number, and be longer than six charaters.
+                                
+                            </div>
+                            <div class="text-success" *ngIf="password.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-group" >
+                            <label for="">Mobile</label>
+                            <input  formControlName="mobile" placeholder="Enter mobile" type = "text" class="form-control rounded-0" required>
+                            <div class="text-danger" *ngIf="mobile.invalid && (mobile.dirty || mobile.touched ) ">
+                                Please enter valid mobile
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                            <div class="text-success" *ngIf="mobile.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Area</label>
+                            <input  formControlName="area" placeholder="Enter area" type = "text" class="form-control rounded-0" required>
+                            <div class="text-danger" *ngIf="area.invalid && (area.dirty || area.touched ) ">
+                                Please enter valid area
+                                <i class="fa fa-times-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                            <div class="text-success" *ngIf="area.valid">
+                                <i class="fa fa fa-check-circle float-right" aria-hidden="true" style="margin-top: -25px; margin-right: 4px;" ></i>
+                            </div>
+                        </div>
+                        
+    
+                        
+                        <!-- <a  style="float: right; color: rgb(122, 122, 122); margin-bottom: 30px;">Forgot password?</a> -->
+                        <button [disabled]="registerForm.invalid" type = "button" class = "height: 30px; btn btn-block " style="color: white; background: linear-gradient(to bottom left, #33ccff 0%, #0099cc 100%);">REGISTER</button>
+                       
+                        <br>
+                        
+                        <!-- <a  style="text-decoration: none;">New user? Signup</a> -->
+                        
+                    </form>
+                </div> 
+          
+        </div>
+    
+        <!-- <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+            
+                <img class="shadow" src="../../assets/images/register1.png" alt="" style="width: 435px; height: 395;border-radius: 0px 10px 10px 0px;">
+      
+        </div> -->
     </div>

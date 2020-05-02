@@ -9,6 +9,12 @@ router.post("/vologin", UserController.user_vologin);
 
 router.post("/fgpsswd", UserController.user_fgpsswd);
 
+router.post("/registerEvents", UserController.user_regEvents);
+
+router.get("/events", UserController.user_getEvents);
+
+
+
 
 
 
